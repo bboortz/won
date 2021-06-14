@@ -27,9 +27,9 @@ def main():
         update_id += 1
 
 def notify(bot):
-    """Echo the message the user sent."""
+    """notify the user."""
     for uid in USER_IDS:
-        bot.send_message(uid, "Notification!!!")
+        bot.send_message(uid, "Notification !!!")
 
 
 if __name__ == '__main__':
