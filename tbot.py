@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import sys
 import logging
 import telegram
 from telegram.error import NetworkError, Unauthorized
@@ -9,6 +10,7 @@ from time import sleep
 
 API_KEY = os.environ['BOT_TELEGRAM_API_KEY'] # API KEY for telegram bot
 USER_IDS = os.environ['BOT_TELEGRAM_USER_IDS'].split(',') # UserIds which will be informed
+WEBSITE = sys.argv[1]
 
 
 def main():
@@ -29,7 +31,7 @@ def main():
 def notify(bot):
     """notify the user."""
     for uid in USER_IDS:
-        bot.send_message(uid, "Get your vaccine!")
+        bot.send_message(uid, "Right now are vaccination appointments at " + WEBSITE + " available! Be fast!")
 
 
 if __name__ == '__main__':
