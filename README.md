@@ -15,6 +15,6 @@ pip install -R requirements.txt
 ```
 export BOT_TELEGRAM_API_KEY="API-KEY"
 export BOT_TELEGRAM_USER_IDS="id1,id2,id3"
-export BOT_MASTADON_ACCESS_TOKEN="ACCESS-TOKEN"
+export BOT_MASTODON_ACCESS_TOKEN="ACCESS-TOKEN"
 ./won.sh
 ```
