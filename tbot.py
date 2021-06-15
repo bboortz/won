@@ -7,8 +7,8 @@ from telegram.error import NetworkError, Unauthorized
 from time import sleep
 
 
-API_KEY = os.environ['BOT_API_KEY'] # API KEY for telegram bot
-USER_IDS = os.environ['BOT_USER_IDS'].split(',') # UserIds which will be informed
+API_KEY = os.environ['BOT_TELEGRAM_API_KEY'] # API KEY for telegram bot
+USER_IDS = os.environ['BOT_TELEGRAM_USER_IDS'].split(',') # UserIds which will be informed
 
 
 def main():
@@ -29,7 +29,7 @@ def main():
 def notify(bot):
     """notify the user."""
     for uid in USER_IDS:
-        bot.send_message(uid, "Notification !!!")
+        bot.send_message(uid, "Get your vaccine!")
 
 
 if __name__ == '__main__':

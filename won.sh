@@ -4,7 +4,10 @@ EXPECTED='{"resultList":[{"vaccinationCenterPk":860454893542521,"name":"IZ Braun
 while true; do
 	OUT=$(curl -s 'https://www.impfportal-niedersachsen.de/portal/rest/appointments/findVaccinationCenterListFree/38126?stiko=&count=1&birthdate=463701600000'   -H 'authority: www.impfportal-niedersachsen.de'   -H 'sec-ch-ua: " Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"'   -H 'accept: application/json, text/plain, */*'   -H 'authorization: '   -H 'sec-ch-ua-mobile: ?0'   -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36'   -H 'sec-fetch-site: same-origin'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-dest: empty'   -H 'referer: https://www.impfportal-niedersachsen.de/portal/'   -H 'accept-language: en-US,en;q=0.9'   --compressed )
 	echo -ne "."
-	diff -u <( echo $EXPECTED ) <( echo $OUT ) || ./bot.py
-	sleep 60
+	diff -u <( echo $EXPECTED ) <( echo $OUT ) || (
+        ./bot.py
+        ./mbot.py
+    )
+	sleep 3
 done
 
